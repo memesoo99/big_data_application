@@ -15,7 +15,8 @@
     
     // sql to create table
     $sql = "CREATE TABLE storeInfo(
-    id VARCHAR(6) PRIMARY KEY,
+    id VARCHAR(6),
+    foreign key(id) references restareaInfo(id),
     store_id VARCHAR(6) NOT NULL,
     product_id VARCHAR(6) NOT NULL,
     store_name VARCHAR(30) NOT NULL,
@@ -26,7 +27,7 @@
     
     $res = mysqli_query($conn, $sql);
     if ($res === TRUE) {
-      echo "Table restareaInfo created successfully";
+      echo "Table storeInfo created successfully";
     } else {
       echo "Error creating table: " . mysqli_error($conn);
     }
