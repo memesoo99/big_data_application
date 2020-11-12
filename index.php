@@ -12,10 +12,10 @@
         $sql = "SELECT id, name, area from RestAreaInfo";
         $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0){
-            echo "<table><tr><th>ID</th><th>Name</th></tr>";
+            echo "<table><tr><th>ID</th><th>Name</th><th>area</th></tr>";
             // output data of each row
             while($row = $res->fetch_assoc()) {
-              echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["area"]."</td></tr>";
+              echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["area"]."</td></tr>";
             }
             echo "</table>";
         } else {
