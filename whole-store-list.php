@@ -1,9 +1,10 @@
 <html>
   <body>
     <div>
-      <span><a href="Store_insert.php">insert store info</a></span>
-      <span><a href="Store_delete.php">delete store info</a>delete store info</span>
-      <span><a href="Store_update.php">update store info</a>update store info</span>
+      <p><a href="Store_insert.php">insert store info</a>
+      | <a href="Store_delete.php">delete store info</a>
+      | <a href="Store_update.php">update store info</a></p>
+    </div>
     <?php
     $servername = "localhost";
     $username = "root";
@@ -15,10 +16,11 @@
       die("Connection failed: " . mysqli_connect_error());
     }
     else {
+        /*sql안됨 왜1!!!!!*/
         $sql = "SELECT all.id, ra.name, s.store_name, a.area, all.sales
         from WholeStore all join RestAreaInfo ra on all.ra_id=ra.id
         join StoreInfo s on all.store_id=s.id
-        join Area a on all.area_id=a.id;
+        join Area a on all.area_id=a.id
         ";
         $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0){
