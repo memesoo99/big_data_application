@@ -1,4 +1,7 @@
-<?php
+<html>
+  <head></head>
+  <body>
+    <?php
     $servername = "localhost";
     $username = "root";
     $password = "1234";
@@ -24,3 +27,6 @@
     }
     mysqli_close($conn);
 ?>
+<a href="RestArea_insert.html">휴게소 정보 추가하기</a>
+</body>
+</html>

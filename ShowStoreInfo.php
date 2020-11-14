@@ -1,4 +1,5 @@
 <?php
+#<link rel=stylesheet href='style.css' type='text/css'>
     $servername = "localhost";
     $username = "root";
     $password = "1234";
@@ -12,7 +13,7 @@
         $sql = "SELECT s.id, s.store_name, ra.name, p.product_name, stype.store_type, ranking
         from StoreInfo s join RestAreaInfo ra on s.ra_id=ra.id
         join ProductInfo p on s.product_id=p.id
-        join StoreType stype on s.store_type=stype.id;
+        join StoreType stype on s.store_type=stype.id ORDER BY s.id;
         ";
         $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0){
