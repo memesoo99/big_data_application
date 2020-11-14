@@ -9,14 +9,10 @@
            <input type="hidden" name="new" value="1" />
             <table>
                 <tr>
-                    <td>Store name : <input type="text" name="name"/></td>
+                    <td>Store name</td><td><input type="text" name="name"/></td>
                 </tr>
                 <tr>
-                    <td>store type</td>
-                    <td>
-                        ('한식'),('카페'),('분식'),
-                        ('중식'),('양식'),('일식'),
-                        ('간식'),('편의점'),('기타');
+                    <td>store type</td><td>
                         <select name="store-type" size=5>
                             <option value="1">한식</option>
                             <option value="2">카페</option>
@@ -30,6 +26,7 @@
                         </select>
                     </td>
                 </tr>
+            </table>
             <input type="submit" value="add"><br>
         </form>
     </body>
@@ -48,7 +45,7 @@
         if(isset($_POST['new']) && $_POST['new']==1){
             $name=$_POST["name"];
             $type=$_POST["store-type"];
-            $sql="INSERT INTO RestAreaInfo(store_name, store_type) VALUES ('$name',$area)";
+            $sql="INSERT INTO RestAreaInfo(store_name, store_type) VALUES ('$name',$type)";
             
             if (mysqli_query($conn,$sql)) {
                 echo "New record inserted successfully";
