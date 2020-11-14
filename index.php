@@ -9,7 +9,7 @@
       die("Connection failed: " . mysqli_connect_error());
     }
     else {
-        $sql = "SELECT id, name, area from RestAreaInfo";
+        $sql = "SELECT * from RestAreaInfo join Area a where RestAreaInfo.area=a.id";
         $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0){
             echo "<table><tr><th>ID</th><th>Name</th><th>area</th></tr>";
