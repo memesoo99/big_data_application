@@ -14,7 +14,9 @@
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
-
+    $sql = "SELECT * FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id";
+    $res=mysqli_query($conn,$sql);
+    
     $sql = "INSERT INTO CustomerInfo(age, store_type) 
     VALUES (".$data_age.",".$data_combobox.")";
     $res=mysqli_query($conn,$sql);
