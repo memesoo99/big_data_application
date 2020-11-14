@@ -16,7 +16,7 @@
     }
 
     $sql = "INSERT INTO CustomerInfo(age, store_type) 
-    VALUES (".$data_age.,.$data_combobox.")";
+    VALUES (".$data_age.",".$data_combobox.")";
     $res=mysqli_query($conn,$sql);
     if($res===TRUE){
         echo "A record has been inserted.";
@@ -24,9 +24,6 @@
         echo "Error inserting database: " . mysqli_error($conn);
     }
     mysqli_close($conn);
-
-
-
 
 
 ?>
