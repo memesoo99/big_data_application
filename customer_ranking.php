@@ -12,7 +12,7 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 $sql = "SELECT * FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id";
-$sql = "SELECT store_type, AVG(age) FROM CustomerInfo join StoreType s where CustomerInfo.store_type=s.store_type GROUP BY store_type";
+$sql = "SELECT store_type, AVG(age) FROM CustomerInfo join StoreType s where CustomerInfo.store_type=s.id GROUP BY store_type";
 $res = mysqli_query($conn,$sql);
 
 while($row = mysqli_fetch_array($res)){
