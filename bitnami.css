@@ -14,4 +14,8 @@ table {
   font-size: 30px;
 }
 
+table, table tr, table td{
+  padding: 2 15px;
+  text-align: center;
+}
 
