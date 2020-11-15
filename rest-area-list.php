@@ -19,7 +19,8 @@
       //위에꺼 해보삼 근데 원하는게 이게 맞는지 몰겟 ㅜ 위에껀 휴게소이름이랑 매출만 나오는거고
       //아래꺼는 지역이름이랑 휴게소이름 매출나오는거
       //$sql="SELECT area.area, sub1.name ,sub1.total_sale FROM(SELECT wholestore.area_id, restareainfo.name AS name, SUM(sales) AS total_sale FROM wholestore INNER JOIN  restareainfo ON wholestore.ra_id=restareainfo.id GROUP BY ra_id) sub1 INNER JOIN area ON sub1.area_id=area.id";
-        $sql = "SELECT RestAreaInfo.* SUM(WholeStore.sales) from RestAreaInfo
+       
+       $sql = "SELECT RestAreaInfo.* SUM(WholeStore.sales) from RestAreaInfo
         inner join Area where RestAreaInfo.area=Area.id
         inner join WholeStore on WholeStore.ra_id=RestAreaInfo.id
         GROUP BY WholeStore.ra_id";
