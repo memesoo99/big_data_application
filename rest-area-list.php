@@ -15,18 +15,22 @@
       die("Connection failed: " . mysqli_connect_error());
     }
     else { //하고싶은것 : wholestore 테이블에서 같은 휴게소 id 가진 애들의 매출 합 출력하기... 대체 어ㄸㅓㅎ게 하는 건데 ㅠㅠ
-        $sql = "SELECT RestAreaInfo.* SUM(WholeStore.sales) from RestAreaInfo
+        $sql = "SELECT * from RestAreaInfo inner join Area where RestAreaInfo.area=Area.id";
+        //SELECT ra.id, SUM(w.sales) as sum from RestAreaInfo ra join WholeStore w on w.ra_id=ra.id GROUP BY ra.id";
+        /*$sql = "SELECT RestAreaInfo.* SUM(WholeStore.sales) from RestAreaInfo
         inner join Area where RestAreaInfo.area=Area.id
         inner join WholeStore on WholeStore.ra_id=RestAreaInfo.id
-        GROUP BY WholeStore.ra_id";
+        GROUP BY WholeStore.ra_id";*/
         //$sql2 = "SELECT SUM(sales) from WholeStore GROUP BY ra_id";
         $res = mysqli_query($conn, $sql);
         //$res2 = musqli_query($conn, $sql2);
         if(mysqli_num_rows($res) > 0){
-            echo "<table><tr><th>ID</th><th>Name</th><th>area</th></tr>";
+            echo "<table><tr><th>ID</th><th>Name</th><th>area</th><th>sales</th></tr>";
             // output data of each row
             while($row = $res->fetch_assoc()) {
-              echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["area"]."</td></tr>".$row['SUM(sales)'];
+              echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["area"];
+              //echo "<tr><td>".$row["id"]."</td><td>".$row['sum']."</td><td>".$row["area"];
+              //echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["area"]."</td></tr>".$row['sum'];
             }
             echo "</table>";
         } else {
