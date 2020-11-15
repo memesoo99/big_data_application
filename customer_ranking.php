@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body style="background-color: bisque;">
+    <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
     <p><h3>매장종류별 선호연령</h3></p>
     
 </body>
@@ -29,11 +30,11 @@ if (!$conn) {
 $sql = "SELECT storetype.store_type, AVG(customerinfo.age) FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id GROUP BY store_type";
 
 $res = mysqli_query($conn,$sql);
-
+echo "<table border='1'><tr><th>음식종류</th><th>평균나이</th></tr>";
 while($row = mysqli_fetch_array($res,MYSQLI_ASSOC)){
-    printf("store_type:%s, average age: %d<br>\n",$row["store_type"], $row["AVG(customerinfo.age)"]);
+    echo "<tr><td>".$row["store_type"]."</td><td>".$row["AVG(customerinfo.age)"]."</td></tr>";
 }
-
+echo"</table>";
 mysqli_close($conn);
 ?>
 
@@ -84,12 +85,13 @@ mysqli_close($conn);
     $res = mysqli_query($conn,$sql);
     $i=1;
     printf("<연령 %d ~ %d세가 가장 선호하는 휴게소 음식><br>\n",$bottom, $top);
+    echo "<table border='1'>";
     while($row = mysqli_fetch_array($res)){
-      
-      printf("%d순위 : %s<br>\n",$i, $row["store_type"]);
+        echo "<tr><td>".$i."순위</td><td>".$row["store_type"]."</td></tr>";
       $i = $i + 1;
 
   }
+  echo"</table>";
     
     }
   }

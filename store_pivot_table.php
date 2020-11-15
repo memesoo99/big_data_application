@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body style="background-color: bisque;">
-    <p><h3>매장종류별 전국</h3></p>
+    <p><h3>매장종류별 전국분포</h3></p>
     
 </body>
 </html>
@@ -24,9 +24,7 @@ $conn = mysqli_connect($servername, $username, $password, "myDB");
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-//SELECT ex2.area,d.store_type FROM (SELECT ex1.area, c.store_type FROM (SELECT a.area_id, a.store_id, b.area FROM wholestore AS a JOIN area AS b ON a.area_id=b.id) ex1 JOIN StoreInfo as c ON c.id = ex1.store_id)ex2 JOIN storetype as d ON d.id= ex2.store_type
-//SELECT ex2.area,d.store_type, COUNT(ex2.area) FROM (SELECT ex1.area, c.store_type FROM (SELECT a.area_id, a.store_id, b.area FROM wholestore AS a JOIN area AS b ON a.area_id=b.id) ex1 JOIN StoreInfo as c ON c.id = ex1.store_id)ex2 JOIN storetype as d ON d.id= ex2.store_type GROUP BY ex2.area, d.store_type
-//SELECT ex2.area,d.store_type, COUNT(ex2.area),d.id  FROM (SELECT ex1.area, c.store_type FROM (SELECT a.area_id, a.store_id, b.area FROM wholestore AS a JOIN area AS b ON a.area_id=b.id) ex1 JOIN StoreInfo as c ON c.id = ex1.store_id)ex2 JOIN storetype as d ON d.id= ex2.store_type GROUP BY ex2.area, d.store_type
+
 $sql = "SELECT area,
 sum(CASE WHEN store_type='한식' THEN cnt ELSE 0 END)AS 한식,
 sum(CASE WHEN store_type='카페' THEN cnt ELSE 0 END)AS 카페,
@@ -42,7 +40,7 @@ GROUP BY area";
 
 $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0){
-            echo "<table><tr><th>area</th><th>한식</th><th>카페</th><th>분식</th><th>중식</th><th>양식</th><th>일식</th><th>간식</th><th>편의점</th><th>기타</th></tr>";
+            echo "<table border='1'><tr><th>area</th><th>한식</th><th>카페</th><th>분식</th><th>중식</th><th>양식</th><th>일식</th><th>간식</th><th>편의점</th><th>기타</th></tr>";
             
             while($row = $res->fetch_assoc()) {
               echo "<tr><td>".$row["area"]."</td><td>".$row["한식"]."</td><td>".$row["카페"]."</td>
