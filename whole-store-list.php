@@ -1,6 +1,6 @@
 <html>
   <head><link rel="stylesheet" href="bitnami.css"/></head>
-  <body>
+  <body style="background-color: bisque;">
     <div>
       <p><a href="Store_insert.php">insert store info</a>
       | <a href="Store_delete.php">delete store info</a>
