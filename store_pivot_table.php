@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <head><link rel="stylesheet" href="bitnami.css"/></head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="background-color: bisque;">
+<body>
     <p><h3>매장종류별 전국</h3></p>
-    
 </body>
 </html>
 
