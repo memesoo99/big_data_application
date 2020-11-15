@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<<<<<<< HEAD
-<body style="background-color: bisque;">
-    <p><h3>매장종류별 전국분포</h3></p>
-    
-=======
 <body>
     <p><h3>매장종류별 전국</h3></p>
 >>>>>>> 2ca99a17b167ca66063f5e0485b032a3853c4c33

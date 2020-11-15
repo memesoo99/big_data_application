@@ -1,15 +1,5 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "1234";
-    $dbname = "myDB";
-    
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, "myDB");
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
+    include "connection.php";
     
     // sql to create table
     $sql = "CREATE TABLE Area(
