@@ -1,3 +1,4 @@
+
 <?php
 
 $servername = "localhost";
@@ -19,6 +20,8 @@ $res = mysqli_query($conn,$sql);
 while($row = mysqli_fetch_array($res,MYSQLI_ASSOC)){
     printf("store_type:%s, average age: %d\n",$row["store_type"], $row["AVG(customerinfo.age)"]);
 }
+
+//연령별 선호
 
 mysqli_close($conn);
 ?>
