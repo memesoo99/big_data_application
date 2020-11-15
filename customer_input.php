@@ -5,12 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>휴게소 이용객 조사</title>
 </head>
-<body style="background-color: bisque;">
+<body style="background-color: bisque;"> 
+<button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
+<button type="button" onclick=passwordCheck()>관리자 모드</button>
+<script language="javascript">
+    function passwordCheck(){
+        var inputString = prompt('비밀번호를 입력하세요');
+        if (inputString=='1234'){ 
+            location.href='customer_correct.php';
+        }
+        else{
+            alert('땡!!');
+            return false;
+        }
+    }</script>
     <p><h3>소비자 조사</h3></p>
-    <form action='' method="POST">\
-        <input type="hidden" name="new" value="1" />
+    <form action='' method="POST">
+        <input type="hidden" name="new" value="1">
         나이 : <input type="text" name="age"><br><br>
-        음식종류 <br>
+        성병 : 
+        <label><input type="radio" name="sex" value="1"> 남성</label>
+        <label><input type="radio" name="sex" value="2"> 여성</label><br><br>
+        이름 : <input type="text" name="customer_name"><br><br>
+        음식종류 <br><br>
         <select name="customer_combobox" size=5>
             <option value="1">한식</option>
             <option value="2">카페</option>
@@ -45,14 +62,16 @@
         if(isset($_POST['new']) && $_POST['new']==1){
             $data_age = $_POST['age'];
             $data_combobox = $_POST['customer_combobox'];
+            $data_sex = $_POST['sex'];
+            $data_name = $_POST['customer_name'];
             $sql = "SELECT * FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id";
             $res=mysqli_query($conn,$sql);
     
-            $sql = "INSERT INTO CustomerInfo(age, store_type) 
-            VALUES (".$data_age.",".$data_combobox.")";
+            $sql = "INSERT INTO CustomerInfo(age, store_type,sex,customer_name) 
+            VALUES (".$data_age.",".$data_combobox.",".$data_sex.",'".$data_name."')";
             $res=mysqli_query($conn,$sql);
             if($res===TRUE){
-                echo "A record has been inserted.";
+                echo "감사합니다*^^*";
             }else{
                 echo "Error inserting database: " . mysqli_error($conn);
             }
