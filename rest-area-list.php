@@ -1,5 +1,7 @@
 <html>
-  <head></head>
+  <head>
+    <head><link rel="stylesheet" href="bitnami.css"/></head>
+  </head>
   <body>
     <p><a href="insert-rest-area.php">insert rest area</a>
     | <a href="delete-rest-area.php">delete rest area</a>
@@ -14,23 +16,17 @@
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
-    else { //하고싶은것 : wholestore 테이블에서 같은 휴게소 id 가진 애들의 매출 합 출력하기... 대체 어ㄸㅓㅎ게 하는 건데 ㅠㅠ
-        $sql = "SELECT * from RestAreaInfo inner join Area where RestAreaInfo.area=Area.id";
-        //SELECT ra.id, SUM(w.sales) as sum from RestAreaInfo ra join WholeStore w on w.ra_id=ra.id GROUP BY ra.id";
-        /*$sql = "SELECT RestAreaInfo.* SUM(WholeStore.sales) from RestAreaInfo
-        inner join Area where RestAreaInfo.area=Area.id
-        inner join WholeStore on WholeStore.ra_id=RestAreaInfo.id
-        GROUP BY WholeStore.ra_id";*/
-        //$sql2 = "SELECT SUM(sales) from WholeStore GROUP BY ra_id";
+    else {
+      $sql="SELECT area.area, sub1.name ,sub1.sum, sub1.id
+      FROM(SELECT wholestore.area_id, restareainfo.name AS name, SUM(sales) AS sum, restareainfo.id as id FROM wholestore 
+      INNER JOIN  restareainfo ON wholestore.ra_id=restareainfo.id GROUP BY ra_id) sub1
+      INNER JOIN area ON sub1.area_id=area.id ORDER BY sub1.id";
+       
         $res = mysqli_query($conn, $sql);
-        //$res2 = musqli_query($conn, $sql2);
         if(mysqli_num_rows($res) > 0){
             echo "<table><tr><th>ID</th><th>Name</th><th>area</th><th>sales</th></tr>";
-            // output data of each row
             while($row = $res->fetch_assoc()) {
-              echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["area"];
-              //echo "<tr><td>".$row["id"]."</td><td>".$row['sum']."</td><td>".$row["area"];
-              //echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["area"]."</td></tr>".$row['sum'];
+              echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["area"]."</td><td>".$row['sum']."</td><tr>";
             }
             echo "</table>";
         } else {
