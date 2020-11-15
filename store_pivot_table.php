@@ -46,9 +46,9 @@ $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0){
             echo "<table border='1'><tr><th>area</th><th>한식</th><th>카페</th><th>분식</th><th>중식</th><th>양식</th><th>일식</th><th>간식</th><th>편의점</th><th>기타</th></tr>";
             
-            while($row = $res->fetch_assoc()) {
+            while($row = mysqli_fetch_array($res)) {
               echo "<tr><td>".$row["area"]."</td><td>".$row["한식"]."</td><td>".$row["카페"]."</td>
-              <td>".$row["분식"]."</td><td>".$row["중식"]."</td><td>".$row["양식"]."</td><td>".$row["간식"]."</td><td>".$row["편의점"]."</td><td>".$row["기타"]."</td></tr>";
+              <td>".$row["분식"]."</td><td>".$row["중식"]."</td><td>".$row["양식"]."</td><td>".$row["일식"]."</td><td>".$row["간식"]."</td><td>".$row["편의점"]."</td><td>".$row["기타"]."</td></tr>";
             }
             echo "</table>";
         } else {
