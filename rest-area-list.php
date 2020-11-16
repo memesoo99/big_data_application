@@ -3,6 +3,7 @@
     <head><link rel="stylesheet" href="bitnami.css"/></head>
   </head>
   <body>
+  <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
     <p><a href="insert-rest-area.php">새로운 휴게소 추가하기</a>
     <table>
       <tr>

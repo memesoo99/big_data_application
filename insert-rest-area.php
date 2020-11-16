@@ -5,6 +5,7 @@
         <meta charset="utf-8">
     </head>
     <body>
+    <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
         <div><h3>휴게소 정보 추가하기</h3></p></div>
         <form action="" method="POST">
             <input type="hidden" name="new" value="1" />

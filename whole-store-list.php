@@ -1,6 +1,7 @@
 <html>
   <head><link rel="stylesheet" href="bitnami.css"/></head>
   <body>
+  <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
     <p><a href="store-by-sales.php">매출 범위 별 가게 보려면 클릭</a></p>
     <?php
       include "connection.php";

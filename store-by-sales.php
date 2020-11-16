@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="bitnami.css"/>
     </head>
     <body>
+    <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
         <h3>해당 구간의 가게 정보 보기 : 구간을 선택하세요</h3>
         <form action="" method="POST">
         <input type="hidden" name="new" value="1" />

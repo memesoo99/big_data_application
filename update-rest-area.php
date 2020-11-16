@@ -26,6 +26,7 @@ if(isset($_POST['update']))
 ?>
 <html>
     <body>
+    <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
         <h3>Update Data</h3>
 
         <form method="POST">
