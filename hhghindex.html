@@ -25,8 +25,8 @@
           -> pivot table(store_pivot_table.php)<br>
           -> ranking(customer_ranking.php)<br>
           -> rollup grouping(rest-area-list.php)<br>
-          -><br>
-          -><br>
+          -> DENSE_RANK() OVER (PARTITION BY ra_id ORDER BY sales)<br>
+          -> CASE WHEN THEN : 매출 구간 별로 출력하기<br>
         6. <del> various types of user input (text box, combo box 사용)</del><br>
         7. <del> Use PHP sessions to store and retrieve information needed between some pages displayed</del><br>
         8.  at least one transaction in the database??<br>
