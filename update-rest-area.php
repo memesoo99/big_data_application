@@ -1,21 +1,21 @@
 <?php
 include "connection.php";
 $id = $_GET['id'];
-$res = mysqli_query($conn,"SELECT * from RestAreaInfo where id='$id'"); // select query
+$res = mysqli_query($conn,"SELECT * from RestAreaInfo where RestAreaInfo.id='$id'"); 
 
-$data = mysqli_fetch_array($res); // fetch data
+$data = mysqli_fetch_array($res); 
 
-if(isset($_POST['update'])) // when click on Update button
+if(isset($_POST['update'])) 
 {
-    $fullname = $_POST['name'];
-    $age = $_POST['area'];
+    $name = $_POST['name'];
+    $area = $_POST['area'];
 	
     $edit = mysqli_query($conn,"UPDATE RestAreaInfo set name='$name', area='$area' where id='$id'");
 	
     if($edit)
     {
-        mysqli_close($conn); // Close connection
-        header("location:rest-area-list.php"); // redirects to all records page
+        mysqli_close($conn); 
+        header("location:rest-area-list.php"); 
         exit;
     }
     else

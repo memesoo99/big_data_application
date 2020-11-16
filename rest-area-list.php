@@ -25,8 +25,8 @@
               <td><?php echo $row["name"];?></td>
               <td><?php echo $row["area"];?></td>
               <td><?php echo $row['sum'];?></td>
-              <td><a href="update-rest-area.php?id=<?php echo $data['id']; ?>">Edit</a></td>
-              <td><a href="delete.php?id=<?php echo $data['id']; ?>">Delete</a></td>
+              <td><a href="update-rest-area.php?id=<?php echo $row['id']; ?>">Edit</a></td>
+              <td><a href="delete-rest-area.php?id=<?php echo $row['id']; ?>">Delete</a></td>
             </tr>
       <?php }
       } else { echo "0 results"; }
