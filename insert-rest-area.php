@@ -29,7 +29,7 @@
         $sql="INSERT INTO RestAreaInfo(name, area) VALUES ('$name',$area)";
         
         if (mysqli_query($conn,$sql)) {
-            echo "New record inserted successfully";
+            header("location:rest-area-list.php"); 
         } else {
             echo "Error inserting database: " . mysqli_error($conn);
         }

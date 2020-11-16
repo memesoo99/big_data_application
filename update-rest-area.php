@@ -30,13 +30,14 @@ if(isset($_POST['update']))
 
         <form method="POST">
         <input type="text" name="name" value="<?php echo $data['name'] ?>" placeholder="Enter Name" Required>
-        <select name="area" size=5 value="<?php echo $data['area']?>">
+        <input type="text" name="area" value="<?php echo $data['area'] ?>" placeholder="Enter area num" Required>
+        <!---<select name="area" size=5 value="<?php //echo $data['area']?>">
                         <option value="1">서울경기</option>
                         <option value="2">부산경상</option>
                         <option value="3">강원</option>
                         <option value="4">충청</option>
                         <option value="5">전라</option>
-                    </select>
+                    </select>--->
         <input type="submit" name="update" value="Update">
         </form>
     </body>

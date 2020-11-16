@@ -14,6 +14,7 @@ if($del)
 }
 else
 {
+    echo mysqli_error($conn);
     echo "Error deleting record"; 
 }
 ?>

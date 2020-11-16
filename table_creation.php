@@ -16,29 +16,29 @@
                 store_type INT,
                 sex INT UNSIGNED NOT NULL,
                 customer_name VARCHAR(30) NOT NULL,
-                FOREIGN KEY (store_type) REFERENCES StoreType (id),
+                FOREIGN KEY (store_type) REFERENCES StoreType (id) ON DELETE SET NULL ON UPDATE CASCADE,
                 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                 );
             CREATE TABLE RestAreaInfo(
                 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
                 name VARCHAR(30) NOT NULL,
                 area INT,
-                FOREIGN KEY (area) REFERENCES Area (id),
+                FOREIGN KEY (area) REFERENCES Area (id) ON DELETE CASCADE ON UPDATE CASCADE,
                 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                 );
             CREATE TABLE StoreInfo(
                 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
                 store_name VARCHAR(30) NOT NULL,
                 store_type INT, 
-                FOREIGN KEY (store_type) REFERENCES StoreType (id),
+                FOREIGN KEY (store_type) REFERENCES StoreType (id) ON DELETE SET null ON UPDATE CASCADE,
                 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                 );
             CREATE TABLE WholeStore(
                 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
                 ra_id INT, store_id INT, area_id INT, sales INT,
-                FOREIGN KEY(ra_id) REFERENCES RestAreaInfo (id),
-                FOREIGN KEY(store_id) REFERENCES StoreInfo (id),
-                FOREIGN KEY(area_id) REFERENCES Area (id))";
+                FOREIGN KEY(ra_id) REFERENCES RestAreaInfo (id) ON DELETE CASCADE ON UPDATE CASCADE,
+                FOREIGN KEY(store_id) REFERENCES StoreInfo (id) ON DELETE CASCADE ON UPDATE CASCADE,
+                FOREIGN KEY(area_id) REFERENCES Area (id) ON DELETE CASCADE ON UPDATE CASCADE)";
 
     if (mysqli_multi_query($conn, $sql)) {
         do {

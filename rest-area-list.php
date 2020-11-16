@@ -3,9 +3,7 @@
     <head><link rel="stylesheet" href="bitnami.css"/></head>
   </head>
   <body>
-    <p><a href="insert-rest-area.php">insert rest area</a>
-    | <a href="delete-rest-area.php">delete rest area</a>
-    | <a href="update-rest-area.php">update rest area info</a></p>
+    <p><a href="insert-rest-area.php">새로운 휴게소 추가하기</a>
     <table>
       <tr>
         <th>ID</th><th>Name</th><th>area</th><th>sales</th><th>edit</th><th>delete</th>
