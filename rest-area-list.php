@@ -8,7 +8,7 @@
     | <a href="update-rest-area.php">update rest area info</a></p>
     <table>
       <tr>
-        <th>ID</th><th>Name</th><th>area</th><th>sales</th>
+        <th>ID</th><th>Name</th><th>area</th><th>sales</th><th>edit</th><th>delete</th>
       </tr>
     <?php
       include "connection.php";
@@ -25,14 +25,14 @@
               <td><?php echo $row["name"];?></td>
               <td><?php echo $row["area"];?></td>
               <td><?php echo $row['sum'];?></td>
-              <td><a href="edit.php?id=<?php echo $data['id']; ?>">Edit</a></td>
+              <td><a href="update-rest-area.php?id=<?php echo $data['id']; ?>">Edit</a></td>
               <td><a href="delete.php?id=<?php echo $data['id']; ?>">Delete</a></td>
-            </tr></table>
+            </tr>
       <?php }
       } else { echo "0 results"; }
       mysqli_close($conn);
       ?>
-
+</table>
 </body>
 </html>
 
