@@ -1,11 +1,7 @@
 <html>
   <head><link rel="stylesheet" href="bitnami.css"/></head>
-  <body style="background-color: bisque;">
-    <div>
-      <p><a href="Store_insert.php">insert store info</a>
-      | <a href="Store_delete.php">delete store info</a>
-      | <a href="Store_update.php">update store info</a></p>
-    </div>
+  <body>
+    <p><a href="store-by-sales.php">매출 범위로 가게 보기</a></p>
     <?php
       include "connection.php";
       $sql = "SELECT w.id, ra.name, s.store_name, a.area, w.sales from WholeStore w
