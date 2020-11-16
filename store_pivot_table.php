@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <head><link rel="stylesheet" href="bitnami.css"/></head>
+    <link rel="stylesheet" href="bitnami.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
-<body style="background-color: bisque;">
+<body>
 <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
     <p><h3>매장종류별 전국분포</h3></p>
     
-
 </body>
 </html>
 
