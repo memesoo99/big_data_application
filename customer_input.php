@@ -7,18 +7,18 @@
 </head>
 <body style="background-color: bisque;"> 
 <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
-<button type="button" onclick=passwordCheck()>관리자 모드</button>
-<script language="javascript">
-    function passwordCheck(){
-        var inputString = prompt('비밀번호를 입력하세요');
-        if (inputString=='1234'){ 
-            location.href='customer_correct.php';
-        }
-        else{
-            alert('땡!!');
-            return false;
-        }
-    }</script>
+<button type="button" onclick="location.href='main.php'">관리자 모드</button>
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휴게소 이용객 조사</title>
+</head>
+<body style="background-color: bisque;"> 
     <p><h3>소비자 조사</h3></p>
     <form action='' method="POST">
         <input type="hidden" name="new" value="1">

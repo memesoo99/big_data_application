@@ -7,11 +7,14 @@
         <div><h3>고객정보 수정하기</h3></p></div>
         *** 유의사항: 본 페이지는 엉터리값으로 입력된 항을 제거해 조사의 정확도를 높이기 위해 제공되는 페이지이다.<br>
         임의로 데이터를 수정하거나 삭제하지 말것!! <br><br>
+
+        <button type="button" onclick="location.href='logout.php'">종료</button><br>
+        <br>
         <form action="" method="POST">
         <input type="hidden" name="new" value="1">
             [삭제]<br>
             id : <input type="text" name="id"  />
-            <input type="submit" value="삭제"><br><br><br>
+            <input type="submit" value="삭제"><br><br>
         </form>
         
         <?php
