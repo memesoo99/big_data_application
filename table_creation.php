@@ -38,7 +38,7 @@
                 ra_id INT, store_id INT, area_id INT, sales INT,
                 FOREIGN KEY(ra_id) REFERENCES RestAreaInfo (id) ON DELETE CASCADE ON UPDATE CASCADE,
                 FOREIGN KEY(store_id) REFERENCES StoreInfo (id) ON DELETE CASCADE ON UPDATE CASCADE,
-                FOREIGN KEY(area_id) REFERENCES Area (id) ON DELETE CASCADE ON UPDATE CASCADE)";
+                FOREIGN KEY(area_id) REFERENCES RestAreaInfo (area) ON DELETE CASCADE ON UPDATE CASCADE)";
 
     if (mysqli_multi_query($conn, $sql)) {
         do {

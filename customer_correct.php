@@ -18,16 +18,7 @@
         </form>
         
         <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "1234";
-    $dbname = "myDB";
-    
-    $conn = mysqli_connect($servername, $username, $password, "myDB");
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    else { 
+        include "connection.php";
       
         if(isset($_POST['new']) && $_POST['new']==1){
             $sql = "DELETE FROM CustomerInfo WHERE id=".$_POST['id'].";";
@@ -39,14 +30,14 @@
                 echo "Error deleting database: " . mysqli_error($conn);
             }
         }
-    }
+    
     mysqli_close($conn);
 ?>
         <form action="" method="POST">
         <input type="hidden" name="new2" value="1">
             [수정]<br>
-            id : <input type="text" name="id"  /><br>
-            나이 : <input type="text" name="age"><br>
+            id : <input type="number" name="id"  /><br>
+            나이 : <input type="number" name="age"><br>
             성별 : 
             <label><input type="radio" name="sex" value="1"> 남성</label>
             <label><input type="radio" name="sex" value="2"> 여성</label><br>
@@ -70,34 +61,30 @@
 
 
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "1234";
-    $dbname = "myDB";
-    
-    $conn = mysqli_connect($servername, $username, $password, "myDB");
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    else {
+    include "connection.php";
         if(isset($_POST['new2']) && $_POST['new2']==1){
-            $id=$_POST["id"];
-            $age=$_POST["age"];
-            $store_type=$_POST["customer_combobox"];
-            $sex=$_POST["sex"];
-            $name=$_POST["customer_name"];
+            $conn->begin_transaction();
+            try {
+                $id=$_POST["id"];
+                $age=$_POST["age"];
+                $store_type=$_POST["customer_combobox"];
+                $sex=$_POST["sex"];
+                $name=$_POST["customer_name"];
+                
+                $sql="UPDATE CustomerInfo SET age=".$age.", store_type=".$store_type.", sex=".$sex.", customer_name='".$name."' WHERE id=".$id.";";
+                mysqli_query($conn,$sql);
+                $conn->commit();
 
-            $sql="UPDATE CustomerInfo SET age=".$age.", store_type=".$store_type.", sex=".$sex.", customer_name='".$name."' WHERE id=".$id.";";
-            
-            if (mysqli_query($conn,$sql)) {
-                echo "record updates successfully";
-            } else {
-                echo "Error updating database: " . mysqli_error($conn);
+            } catch (TypeError $ex) {
+                echo $ex->getMessage();
+                $conn->rollback();
+                throw $ex;
             }
-            
-            
+
         }
-    }
+            
+        
+    
     $sql = "SELECT * FROM CustomerInfo";
         $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0){

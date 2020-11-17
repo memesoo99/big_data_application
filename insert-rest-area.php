@@ -5,8 +5,11 @@
         <meta charset="utf-8">
     </head>
     <body>
-    <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
-        <div><h3>휴게소 정보 추가하기</h3></p></div>
+        <div>
+            <h3>휴게소 정보 추가하기</h3>
+            <button type="button" onclick="location.href='logout.php'">종료</button><br>
+        </div>
+        
         <form action="" method="POST">
             <input type="hidden" name="new" value="1" />
             휴게소 이름: <input type="text" name="name"/><br><br>
@@ -30,7 +33,8 @@
         $sql="INSERT INTO RestAreaInfo(name, area) VALUES ('$name',$area)";
         
         if (mysqli_query($conn,$sql)) {
-            header("location:rest-area-list.php"); 
+            echo "new record inserted successfully";
+            header("location:insert-rest-area.php"); 
         } else {
             echo "Error inserting database: " . mysqli_error($conn);
         }

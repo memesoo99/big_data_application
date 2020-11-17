@@ -1,8 +1,10 @@
 <html>
   <head><link rel="stylesheet" href="bitnami.css"/></head>
   <body>
-  <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
-    <p><a href="store-by-sales.php">매출 범위 별 가게 보려면 클릭</a></p>
+    <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
+    <div id='content'>
+      <a href="store-by-sales.php">-->매출 범위 별 매장 확인<--</a></p>
+      <a href="store_pivot_table.php">--> 매장종류별 전국 분포 <--</a></div>
     <?php
       include "connection.php";
       $sql = "SELECT w.id, ra.name, s.store_name, a.area, w.sales from WholeStore w
