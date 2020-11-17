@@ -5,6 +5,7 @@
     </head>
     <body>
     <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
+    <button type="button" onclick="location.href='whole_store_list.php' ">뒤로가기</button>
         <h3>해당 구간의 가게 정보 보기 : 구간을 선택하세요</h3>
         <form action="" method="POST">
         <input type="hidden" name="new" value="1" />
@@ -38,8 +39,8 @@
     $res=mysqli_query($conn,$sql);
     if($res){
         ?>
-        <table>
-            <tr><?php echo $range."구간의 매장 목록";?></tr>
+        <table border=1>
+            <tr><div class="m10"><?php echo $range." 구간의 매장 목록";?></div></tr>
             <tr>
                 <th>ID</th><th>Rest Area</th><th>Store Name</th><th>Sales</th>
             </tr>

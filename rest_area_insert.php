@@ -3,17 +3,19 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="bitnami.css"/>
     </head>
     <body>
         <div>
-            <h3>휴게소 정보 추가하기</h3>
-            <button type="button" onclick="location.href='logout.php'">종료</button><br>
+            <span style="font-size: 20px;">휴게소 정보 추가하기</span>
+            <button type="button" onclick="location.href='logout.php'">종료</button>
         </div>
         
+        <br><br><br>
         <form action="" method="POST">
             <input type="hidden" name="new" value="1" />
-            휴게소 이름: <input type="text" name="name"/><br><br>
-            지역을 선택하세요<br>
+            휴게소 이름 <input type="text" name="name"/><br><br>
+            지역을 선택하세요<br><br>
             <select name="area" size=5>
                 <option value="1">서울경기</option>
                 <option value="2">부산경상</option>

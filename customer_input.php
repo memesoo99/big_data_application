@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bitnami.css"/>
     <title>휴게소 이용객 조사</title>
 </head>
 <body style="background-color: bisque;"> 

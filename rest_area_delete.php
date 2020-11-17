@@ -9,7 +9,7 @@ $del = mysqli_query($conn,$sql);
 if($del)
 {
     mysqli_close($conn);
-    header("location:rest-area-list.php"); 
+    header("location:rest_area_edit.php"); 
     exit;	
 }
 else

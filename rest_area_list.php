@@ -3,10 +3,10 @@
     <head><link rel="stylesheet" href="bitnami.css"/></head>
   </head>
   <body>
-    <button type="button" onclick="location.href='logout.php'">종료</button><br>
+  <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
     <table border=1>
       <tr>
-        <th>ID</th><th>Name</th><th>area</th><th>edit</th><th>delete</th>
+        <th>ID</th><th>Name</th><th>area</th><th>go to store</th></th>
       </tr>
     <?php
       include "connection.php";
@@ -20,8 +20,7 @@
               <td><?php echo $row["id"];?></td>
               <td><?php echo $row["name"];?></td>
               <td><?php echo $row["area"];?></td>
-              <td><a href="update-rest-area.php?id=<?php echo $row['id']; ?>">Edit</a></td>
-              <td><a href="delete-rest-area.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+              <td><a href="store_ranking.php?id=<?php echo $row['id']; ?>">go to store</a></td>
             </tr>
       <?php }
       } else { echo "0 results"; }

@@ -15,7 +15,7 @@ if(isset($_POST['update']))
     if($edit)
     {
         mysqli_close($conn); 
-        header("location:rest-area-list.php"); 
+        header("location:rest_area_edit.php"); 
         exit;
     }
     else
@@ -25,6 +25,7 @@ if(isset($_POST['update']))
 }
 ?>
 <html>
+    <head><link rel="stylesheet" href="bitnami.css"/></head>
     <body>
     <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
         <h3>Update Data</h3>
