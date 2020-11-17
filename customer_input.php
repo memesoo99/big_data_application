@@ -7,7 +7,6 @@
 </head>
 <body style="background-color: bisque;"> 
 <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
-<button type="button" onclick="location.href='login_main.php'">수정</button>
     </body>
 </html>
 

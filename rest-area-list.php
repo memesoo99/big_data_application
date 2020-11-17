@@ -5,9 +5,6 @@
   <body>
   <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
     <table border=1>
-      <tr>
-        <th>ID</th><th>Name</th><th>area</th><th>sales</th>
-      </tr>
 
       <?php 
       include "connection.php";
