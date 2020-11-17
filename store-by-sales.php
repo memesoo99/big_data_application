@@ -12,7 +12,7 @@
                     <option value="0-20,000">0-20,000</option>
                     <option value="20,000-40,000">20,000-40,000</option>
                     <option value="40,000-60,000">40,000-60,000</option>
-                    <option value="60,000-60,000">60,000-60,000</option>
+                    <option value="60,000-80,000">60,000-80,000</option>
                     <option value="more than 80,000">more than 80,000</option>
             </select>
             <input type="submit" value="enter">

@@ -8,7 +8,7 @@ if($admin_pwd!= '1234') {
 }else{
     session_start();
 $_SESSION['user_id'] = $user_id;
-echo "<meta http-equiv='refresh' content='0;url=customer_correct.php'>";
+echo "<meta http-equiv='refresh' content='0;url=edit.php'>";
 }
 
 ?>

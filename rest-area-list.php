@@ -5,7 +5,7 @@
   <body>
   <button type="button" onclick="location.href='index.html' ">홈으로 이동</button>
     <p><a href="insert-rest-area.php">새로운 휴게소 추가하기</a>
-    <table>
+    <table border=1>
       <tr>
         <th>ID</th><th>Name</th><th>area</th><th>sales</th><th>edit</th><th>delete</th>
       </tr>
