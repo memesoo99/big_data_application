@@ -22,7 +22,7 @@
     <form action='' method="POST">
         <input type="hidden" name="new" value="1">
         나이 : <input type="text" name="age"><br><br>
-        성병 : 
+        성별 : 
         <label><input type="radio" name="sex" value="1"> 남성</label>
         <label><input type="radio" name="sex" value="2"> 여성</label><br><br>
         이름 : <input type="text" name="customer_name"><br><br>
