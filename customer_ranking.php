@@ -80,8 +80,9 @@ mysqli_close($conn);
     $data_age = $_POST['age'];
     $bottom = ($data_age-1)*10;
     $top = ($data_age)*10;
-    $sql = "SELECT sub1.store_type, COUNT(sub1.id) FROM (SELECT storetype.store_type, storetype.id, age FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id 
-    WHERE (age BETWEEN {$bottom} AND {$top}))sub1 GROUP BY sub1.store_type";
+    $sql = "SELECT sub1.store_type, COUNT(sub1.id), RANK() OVER (ORDER BY COUNT(sub1.id) DESC) 
+    FROM (SELECT storetype.store_type, storetype.id, age FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id 
+        WHERE (age BETWEEN {$bottom} AND {$top}))sub1 GROUP BY sub1.store_type ORDER BY RANK() OVER (ORDER BY COUNT(sub1.id) DESC)";
     $res = mysqli_query($conn,$sql);
     $i=1;
     printf("<연령 %d ~ %d세가 가장 선호하는 휴게소 음식><br>\n",$bottom, $top);
