@@ -4,6 +4,10 @@ if(!isset($_SESSION['user_id'])) {
 	echo "<meta http-equiv='refresh' content='0;url=login.php'>";
 	exit;
 }
+else{
+	echo "<meta http-equiv='refresh' content='0;url=edit.php'>";
+	exit;
+}
 
 
 ?>
