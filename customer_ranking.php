@@ -10,15 +10,7 @@
         <p><h3>매장종류별 선호연령</h3></p>
         <?php
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "1234";
-        $dbname = "myDB";
-
-        $conn = mysqli_connect($servername, $username, $password, "myDB");
-        if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-        }
+        include "connection.php";
 
         $sql = "SELECT storetype.store_type, AVG(customerinfo.age) FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id GROUP BY store_type";
 
@@ -62,32 +54,23 @@
         
         <?php
 
-        // Create connection
-        $conn = mysqli_connect($servername, $username, $password, "myDB");
-        // Check connection
-        if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-        }
-        else{
+        include "connection.php";
             if(isset($_POST['new']) && $_POST['new']==1){
-            $data_age = $_POST['age'];
-            $bottom = ($data_age-1)*10;
-            $top = ($data_age)*10;
-            $sql = "SELECT sub1.store_type, COUNT(sub1.id), RANK() OVER (ORDER BY COUNT(sub1.id) DESC) 
-            FROM (SELECT storetype.store_type, storetype.id, age FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id 
-                WHERE (age BETWEEN {$bottom} AND {$top}))sub1 GROUP BY sub1.store_type ORDER BY RANK() OVER (ORDER BY COUNT(sub1.id) DESC)";
-            $res = mysqli_query($conn,$sql);
-            $i=1;
-            printf("<연령 %d ~ %d세가 가장 선호하는 휴게소 음식><br>\n",$bottom, $top);
-            echo "<table border='1'>";
-            while($row = mysqli_fetch_array($res)){
-                echo "<tr><td>".$i."순위</td><td>".$row["store_type"]."</td></tr>";
-            $i = $i + 1;
-
-        }
-        echo"</table>";
-            
+                $data_age = $_POST['age'];
+                $bottom = ($data_age-1)*10;
+                $top = ($data_age)*10;
+                $sql = "SELECT sub1.store_type, COUNT(sub1.id), RANK() OVER (ORDER BY COUNT(sub1.id) DESC) 
+                FROM (SELECT storetype.store_type, storetype.id, age FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id 
+                    WHERE (age BETWEEN {$bottom} AND {$top}))sub1 GROUP BY sub1.store_type ORDER BY RANK() OVER (ORDER BY COUNT(sub1.id) DESC)";
+                $res = mysqli_query($conn,$sql);
+                $i=1;
+                printf("<연령 %d ~ %d세가 가장 선호하는 휴게소 음식><br>\n",$bottom, $top);
+                echo "<table border='1'>";
+                while($row = mysqli_fetch_array($res)){
+                    echo "<tr><td>".$i."순위</td><td>".$row["store_type"]."</td></tr>";
+                    $i = $i + 1;
             }
+            echo"</table>";
         }
         //연령별 선호
         mysqli_close($conn);

@@ -46,35 +46,23 @@
 
 <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "1234";
-    $dbname = "myDB";
-    
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, "myDB");
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    else{
-        if(isset($_POST['new']) && $_POST['new']==1){
-            $data_age = $_POST['age'];
-            $data_combobox = $_POST['customer_combobox'];
-            $data_sex = $_POST['sex'];
-            $data_name = $_POST['customer_name'];
-            $sql = "SELECT * FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id";
-            $res=mysqli_query($conn,$sql);
-    
-            $sql = "INSERT INTO CustomerInfo(age, store_type,sex,customer_name) 
-            VALUES (".$data_age.",".$data_combobox.",".$data_sex.",'".$data_name."')";
-            $res=mysqli_query($conn,$sql);
-            if($res===TRUE){
-                echo "감사합니다*^^*";
-            }else{
-                echo "Error inserting database: " . mysqli_error($conn);
-            }
-            mysqli_close($conn);
+    include "connection.php";
+    if(isset($_POST['new']) && $_POST['new']==1){
+        $data_age = $_POST['age'];
+        $data_combobox = $_POST['customer_combobox'];
+        $data_sex = $_POST['sex'];
+        $data_name = $_POST['customer_name'];
+        $sql = "SELECT * FROM customerinfo INNER JOIN storetype ON customerinfo.store_type = storetype.id";
+        $res=mysqli_query($conn,$sql);
+
+        $sql = "INSERT INTO CustomerInfo(age, store_type,sex,customer_name) 
+        VALUES (".$data_age.",".$data_combobox.",".$data_sex.",'".$data_name."')";
+        $res=mysqli_query($conn,$sql);
+        if($res===TRUE){
+            echo "감사합니다*^^*";
+        }else{
+            echo "Error inserting database: " . mysqli_error($conn);
         }
+        mysqli_close($conn);
     }
     ?>

@@ -1,21 +1,23 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "1234";
+$username = "team05";
+$password = "team05";
 
-// Create connection
+
 $conn = new mysqli($servername, $username, $password);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+
+if(!$conn)
+{
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Create database
-$sql = "CREATE DATABASE myDB";
-if ($conn->query($sql) === TRUE) {
+$sql = "CREATE DATABASE team05";
+$res = mysqli_query($conn, $sql);
+if ($res === TRUE) {
   echo "Database created successfully";
 } else {
-  echo "Error creating database: " . $conn->error;
+  echo "Error creating database: " . mysqli_error($conn);
 }
 
 $conn->close();

@@ -14,17 +14,7 @@
       
   <?php
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "1234";
-  $dbname = "myDB";
-
-  // Create connection
-  $conn = mysqli_connect($servername, $username, $password, "myDB");
-  // Check connection
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
+  include "connection.php";
 
   $sql = "SELECT area,
   sum(CASE WHEN store_type='한식' THEN cnt ELSE 0 END)AS 한식,

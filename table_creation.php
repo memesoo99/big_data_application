@@ -49,16 +49,10 @@
                 mysqli_free_result($result); 
             }
         }
-     while (mysqli_next_result($conn));}
+    while (mysqli_next_result($conn));}
     
     
-    // create new connection for insert
-    $conn = mysqli_connect($servername, $username, $password, "myDB");
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    //insert data
+    include "connection.php";
     $sql = "INSERT INTO Area (area) VALUES
                 ('서울경기'),('부산경상'),('강원'),('충청'),('전라');
             INSERT INTO StoreType (store_type) VALUES
