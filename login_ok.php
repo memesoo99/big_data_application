@@ -9,6 +9,6 @@ if($admin_pwd!= 'team05') {
     session_start();
 $_SESSION['user_id'] = $user_id;
 echo "<meta http-equiv='refresh' content='0;url=edit.php'>";
-}
+} 
 
 ?>
