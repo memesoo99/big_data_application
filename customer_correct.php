@@ -68,24 +68,19 @@
         <?php
         include "connection.php";
             if(isset($_POST['new2']) && $_POST['new2']==1){
-                $conn->begin_transaction();
-                try {
-                    $id=$_POST["id"];
-                    $age=$_POST["age"];
-                    $store_type=$_POST["customer_combobox"];
-                    $sex=$_POST["sex"];
-                    $name=$_POST["customer_name"];
-                    
-                    $sql="UPDATE CustomerInfo SET age=".$age.", store_type=".$store_type.", sex=".$sex.", customer_name='".$name."' WHERE id='.$id.'";
-                    mysqli_query($conn,$sql);
-                    $conn->commit();
-
-                } catch (TypeError $ex) {
-                    echo $ex->getMessage();
-                    $conn->rollback();
-                    throw $ex;
-                }
-
+                $id=$_POST["id"];
+                $age=$_POST["age"];
+                $store_type=$_POST["customer_combobox"];
+                $sex=$_POST["sex"];
+                $name=$_POST["customer_name"];
+    
+                $sql="UPDATE CustomerInfo SET age=".$age.", store_type=".$store_type.", sex=".$sex.", customer_name='".$name."' WHERE id=".$id.";";
+    
+                if (mysqli_query($conn,$sql)) {
+                    echo "record updates successfully";
+                } else {
+                    echo "Error updating database: " . mysqli_error($conn);
+                }    
             }
                 
             

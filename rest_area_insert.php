@@ -36,11 +36,11 @@
         
         if (mysqli_query($conn,$sql)) {
             echo "new record inserted successfully";
-            header("location:insert-rest-area.php"); 
         } else {
             echo "Error inserting database: " . mysqli_error($conn);
         }
         
+        //header("location:rest_area_insert.php"); 
         mysqli_close($conn);
     }
 ?>
